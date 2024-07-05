@@ -3,11 +3,11 @@ from typing import Dict
 
 
 def get_way_from_transactions(json_info: str) -> list[Dict]:
-    """ Функция, которая принимает на вход путь до JSON-файла и
+    """Функция, которая принимает на вход путь до JSON-файла и
     возвращает список словарей с данными о финансовых транзакциях.
     Если файл пустой, содержит не список или не найден, функция возвращает пустой список."""
     try:
-        with open(json_info, 'r', encoding="utf-8") as file:
+        with open(json_info, "r", encoding="utf-8") as file:
             data = json.load(file)
 
             if isinstance(data, list):
@@ -20,6 +20,7 @@ def get_way_from_transactions(json_info: str) -> list[Dict]:
     except json.JSONDecodeError:
         print("Неверный формат JSON.")
         return []
+
 
 if __name__ == "__main__":
     file_path = "../data/operations.json"
